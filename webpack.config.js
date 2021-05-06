@@ -1,10 +1,13 @@
 const path = require("path");
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
   target: "web",
   mode: "development",
-  entry: "./src/index.js",
+  entry: {
+    app: "./src/index.js",
+  },
   devServer: {
     contentBase: "./build",
     open: true,
@@ -19,18 +22,22 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
     new HtmlWebpackPlugin({
       title: "Hello react",
       template: path.resolve(__dirname, "public/index.html"),
     }),
   ],
   output: {
-    filename: "main.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "build"),
+    clean: true
   },
 };
