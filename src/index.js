@@ -1,1 +1,3 @@
-console.log("hello world");
+const printName = (name) => console.log(name);
+
+printName("sabari");
