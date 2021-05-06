@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 
 module.exports = {
   mode: "development",
@@ -12,6 +13,11 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "Hello webpack",
+    })
+  ],
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "build"),

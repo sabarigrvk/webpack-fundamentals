@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("var printName = function printName(name) {\n  return console.log(name);\n};\n\nprintName(\"sabari\");\n\n//# sourceURL=webpack://webpack-fundamentals/./src/index.js?");
+eval("var printName = function printName(name) {\n  return console.log(name);\n};\n\nprintName(\"Hello\");\n\n//# sourceURL=webpack://webpack-fundamentals/./src/index.js?");
 
 /***/ })
 
