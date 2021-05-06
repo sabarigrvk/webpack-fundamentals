@@ -8,6 +8,7 @@ module.exports = {
   devServer: {
     contentBase: "./build",
     open: true,
+    hot: true,
   },
   module: {
     rules: [
@@ -15,6 +16,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: "babel-loader",
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
