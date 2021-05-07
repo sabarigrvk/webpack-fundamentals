@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   target: "web",
   mode: "development",
+  // Examples of different sourcemaps - https://github.com/webpack/webpack/tree/master/examples/source-map
+  devtool: "inline-source-map",
   entry: {
     app: "./src/index.js",
   },
