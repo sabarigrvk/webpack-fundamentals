@@ -1,6 +1,8 @@
 const { merge } = require("webpack-merge");
 const nodeExternals = require("webpack-node-externals");
 const { SERVER_SRC_DIR, SERVER_BUILD_DIR } = require("../paths");
+const { serverLoaders } = require("./loaders");
+const { sharedPlugins, serverPlugins } = require("./plugins");
 
 const baseConfig = {
   name: "server",
@@ -9,6 +11,10 @@ const baseConfig = {
     server: [SERVER_SRC_DIR],
   },
   externals: [nodeExternals()],
+  module: {
+    rules: serverLoaders,
+  },
+  plugins: [...sharedPlugins, ...serverPlugins],
   output: {
     path: SERVER_BUILD_DIR,
     library: {

@@ -1,6 +1,8 @@
 const { join } = require("path");
 const { merge } = require("webpack-merge");
-const { CLIENT_SRC_DIR, CLIENT_BUILD_DIR, PUBLIC_DIR } = require("../paths");
+const { CLIENT_SRC_DIR, CLIENT_BUILD_DIR, STATIC_DIR } = require("../paths");
+const { clientLoaders } = require("./loaders");
+const { clientPlugins, sharedPlugins } = require("./plugins");
 
 const baseConfig = {
   name: "client",
@@ -8,9 +10,13 @@ const baseConfig = {
   entry: {
     bundle: [CLIENT_SRC_DIR],
   },
+  module: {
+    rules: clientLoaders,
+  },
+  plugins: [...sharedPlugins, ...clientPlugins],
   output: {
-    path: join(CLIENT_BUILD_DIR, PUBLIC_DIR),
-    publicPath: PUBLIC_DIR,
+    path: join(CLIENT_BUILD_DIR, STATIC_DIR),
+    publicPath: STATIC_DIR,
   },
 };
 

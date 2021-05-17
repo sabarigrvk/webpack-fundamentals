@@ -1,10 +1,35 @@
 const { merge } = require("webpack-merge");
+const {
+  CONFIG_DIR,
+  CLIENT_SRC_DIR,
+  SERVER_SRC_DIR,
+  SHARED_SRC_DIR,
+  SRC_DIR,
+} = require("../paths");
+
 const config = () => {
   const mode = process.env.NODE_ENV || "development";
   const baseConfig = {
     mode,
     output: {
       clean: true,
+    },
+    resolve: {
+      extensions: [".js", ".json", ".mjs", ".jsx", ".ts", ".tsx", ".css"],
+      alias: {
+        config: CONFIG_DIR,
+        client: CLIENT_SRC_DIR,
+        server: SERVER_SRC_DIR,
+        components: SHARED_SRC_DIR,
+      },
+      fallback: { path: false, fs: false },
+      modules: [
+        CLIENT_SRC_DIR,
+        SERVER_SRC_DIR,
+        SHARED_SRC_DIR,
+        SRC_DIR,
+        "node_modules",
+      ],
     },
     stats: "errors-warnings",
   };
