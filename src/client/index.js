@@ -2,6 +2,7 @@ import React from "react";
 import { hydrate, render } from "react-dom";
 import { Router } from "react-router-dom";
 import App from "components/App";
+import { createBrowserHistory } from "history";
 
 let history = createBrowserHistory();
 

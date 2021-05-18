@@ -1,10 +1,11 @@
 const { merge } = require("webpack-merge");
 const {
-  CONFIG_DIR,
   CLIENT_SRC_DIR,
   SERVER_SRC_DIR,
-  SHARED_SRC_DIR,
+  SHARED_DIR,
   SRC_DIR,
+  COMPONENT_DIR,
+  CONFIG_DIR,
 } = require("../paths");
 
 const config = () => {
@@ -20,16 +21,11 @@ const config = () => {
         config: CONFIG_DIR,
         client: CLIENT_SRC_DIR,
         server: SERVER_SRC_DIR,
-        components: SHARED_SRC_DIR,
+        shared: SHARED_DIR,
+        components: COMPONENT_DIR,
       },
       fallback: { path: false, fs: false },
-      modules: [
-        CLIENT_SRC_DIR,
-        SERVER_SRC_DIR,
-        SHARED_SRC_DIR,
-        SRC_DIR,
-        "node_modules",
-      ],
+      modules: [SRC_DIR, "node_modules"],
     },
     stats: "errors-warnings",
   };
