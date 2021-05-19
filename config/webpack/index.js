@@ -18,18 +18,19 @@ const config = () => {
     resolve: {
       extensions: [".js", ".json", ".mjs", ".jsx", ".ts", ".tsx", ".css"],
       alias: {
-        config: CONFIG_DIR,
         client: CLIENT_SRC_DIR,
-        server: SERVER_SRC_DIR,
-        shared: SHARED_DIR,
         components: COMPONENT_DIR,
+        config: CONFIG_DIR,
+        shared: SHARED_DIR,
+        server: SERVER_SRC_DIR,
       },
       fallback: { path: false, fs: false },
-      modules: [SRC_DIR, "node_modules"],
+      modules: [SRC_DIR, CONFIG_DIR, "node_modules"],
     },
     stats: "errors-warnings",
   };
-
+  // console.log(merge(baseConfig, require("./client")[mode]));
+  // process.exit();
   return [
     merge(baseConfig, require("./client")[mode]),
     merge(baseConfig, require("./server")[mode]),

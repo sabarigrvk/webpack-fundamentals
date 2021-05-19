@@ -5,19 +5,15 @@
     "moduleResolution": "node",
     "target": "es2020",
     "module": "es2015",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "client/*": [
-        "src/client/*"
-      ],
-      "server/*": [
-        "src/server/*"
-      ],
-      "shared/*": [
-        "src/shared/*"
-      ],
-      "components/*": [
-        "src/shared/components/*"
+      "*": [
+        "src/config/*",
+        "src/client/*",
+        "src/server/*",
+        "src/shared/*",
+        "src/components/*",
+        "*"
       ]
     }
   },
@@ -32,11 +28,6 @@
   ],
   "typeAcquisition": {
     "enable": true,
-    "include": [
-      "react",
-      "react-dom",
-      "jest",
-      "testing-library__jest-dom"
-    ]
+    "include": ["react", "react-dom", "jest", "testing-library__jest-dom"]
   }
 }

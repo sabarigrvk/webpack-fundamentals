@@ -10,7 +10,7 @@ module.exports = {
   CLIENT_SRC_DIR: resolveApp("src/client"),
   SERVER_SRC_DIR: resolveApp("src/server"),
   SHARED_DIR: resolveApp("src/shared"),
-  COMPONENT_DIR: resolveApp("src/shared/components"),
+  COMPONENT_DIR: resolveApp("src/components"),
   BUILD_DIR: resolveApp("build"),
   CLIENT_BUILD_DIR: resolveApp("build/client"),
   SERVER_BUILD_DIR: resolveApp("build/server"),
